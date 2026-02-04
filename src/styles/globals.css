@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode colors */
+    --background: 0 0% 95%; /* #F2F3F0 */
+    --foreground: 0 0% 7%; /* #111111 */
+    --primary: 30 100% 50%; /* #FF8400 */
+    --primary-foreground: 0 0% 7%; /* #111111 */
+    --secondary: 60 8% 90%; /* #E7E8E5 */
+    --secondary-foreground: 0 0% 7%; /* #111111 */
+    --destructive: 11 83% 47%; /* #D93C15 */
+    --muted: 0 0% 95%; /* #F2F3F0 */
+    --muted-foreground: 0 0% 40%; /* #666666 */
+    --accent: 0 0% 95%; /* #F2F3F0 */
+    --accent-foreground: 0 0% 7%; /* #111111 */
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 0 0% 7%; /* #111111 */
+    --popover: 0 0% 100%; /* #FFFFFF */
+    --popover-foreground: 0 0% 7%; /* #111111 */
+    --border: 70 3% 79%; /* #CBCCC9 */
+    --input: 70 3% 79%; /* #CBCCC9 */
+    --ring: 0 0% 40%; /* #666666 */
+
+    /* Sidebar colors */
+    --sidebar: 60 8% 90%; /* #E7E8E5 */
+    --sidebar-foreground: 0 0% 40%; /* #666666 */
+    --sidebar-primary: 240 9% 10%; /* #18181b */
+    --sidebar-primary-foreground: 0 0% 98%; /* #fafafa */
+    --sidebar-accent: 70 3% 79%; /* #CBCCC9 */
+    --sidebar-accent-foreground: 240 9% 10%; /* #18181b */
+    --sidebar-border: 70 3% 79%; /* #CBCCC9 */
+    --sidebar-ring: 240 4% 46%; /* #71717a */
+
+    /* Semantic colors */
+    --color-success: 140 13% 87%; /* #DFE6E1 */
+    --color-success-foreground: 145 100% 15%; /* #004D1A */
+    --color-error: 12 25% 87%; /* #E5DCDA */
+    --color-error-foreground: 13 100% 27%; /* #8C1C00 */
+    --color-warning: 38 26% 88%; /* #E9E3D8 */
+    --color-warning-foreground: 30 100% 25%; /* #804200 */
+    --color-info: 240 13% 87%; /* #DFDFE6 */
+    --color-info-foreground: 240 100% 20%; /* #000066 */
+  }
+
+  .dark {
+    /* Dark mode colors */
+    --background: 0 0% 7%; /* #111111 */
+    --foreground: 0 0% 100%; /* #FFFFFF */
+    --primary: 30 100% 50%; /* #FF8400 */
+    --primary-foreground: 0 0% 7%; /* #111111 */
+    --secondary: 0 0% 18%; /* #2E2E2E */
+    --secondary-foreground: 0 0% 100%; /* #FFFFFF */
+    --destructive: 11 100% 60%; /* #FF5C33 */
+    --muted: 0 0% 18%; /* #2E2E2E */
+    --muted-foreground: 60 3% 72%; /* #B8B9B6 */
+    --accent: 0 0% 7%; /* #111111 */
+    --accent-foreground: 0 0% 95%; /* #F2F3F0 */
+    --card: 0 0% 10%; /* #1A1A1A */
+    --card-foreground: 0 0% 100%; /* #FFFFFF */
+    --popover: 0 0% 10%; /* #1A1A1A */
+    --popover-foreground: 0 0% 100%; /* #FFFFFF */
+    --border: 0 0% 18%; /* #2E2E2E */
+    --input: 0 0% 18%; /* #2E2E2E */
+    --ring: 0 0% 40%; /* #666666 */
+
+    /* Sidebar colors */
+    --sidebar: 240 9% 9%; /* #18181b */
+    --sidebar-foreground: 0 0% 98%; /* #fafafa */
+    --sidebar-primary: 240 9% 10%; /* #18181b */
+    --sidebar-primary-foreground: 0 0% 98%; /* #fafafa */
+    --sidebar-accent: 240 6% 17%; /* #2a2a30 */
+    --sidebar-accent-foreground: 0 0% 98%; /* #fafafa */
+    --sidebar-border: 0 0% 100% / 0.1; /* #ffffff1a */
+    --sidebar-ring: 240 4% 46%; /* #71717a */
+
+    /* Semantic colors */
+    --color-success: 145 17% 16%; /* #222924 */
+    --color-success-foreground: 145 100% 85%; /* #B6FFCE */
+    --color-error: 20 50% 10%; /* #24100B */
+    --color-error-foreground: 11 100% 60%; /* #FF5C33 */
+    --color-warning: 34 44% 12%; /* #291C0F */
+    --color-warning-foreground: 30 100% 50%; /* #FF8400 */
+    --color-info: 240 11% 15%; /* #222229 */
+    --color-info-foreground: 240 100% 85%; /* #B2B2FF */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-secondary;
+  }
+}
