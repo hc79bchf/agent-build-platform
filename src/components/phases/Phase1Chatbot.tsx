@@ -5,15 +5,16 @@ import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Bot, Send } from 'lucide-react';
+import { PhaseNav } from '@/components/PhaseNav';
 
 const discoverySections = [
-  { id: 1, name: 'Identity', icon: 'user' },
-  { id: 2, name: 'Memory', icon: 'brain' },
-  { id: 3, name: 'Skills', icon: 'zap' },
+  { id: 1, name: 'Agent Identity', icon: 'user' },
+  { id: 2, name: 'Memory Configuration', icon: 'brain' },
+  { id: 3, name: 'Skills & Capabilities', icon: 'zap' },
   { id: 4, name: 'MCP Tools', icon: 'plug' },
-  { id: 5, name: 'Connections', icon: 'users' },
-  { id: 6, name: 'Guardrails', icon: 'shield' },
-  { id: 7, name: 'Review', icon: 'check-circle' },
+  { id: 5, name: 'A2A Interactions', icon: 'users' },
+  { id: 6, name: 'Security & Guardrails', icon: 'shield' },
+  { id: 7, name: 'Deployment', icon: 'check-circle' },
 ];
 
 export function Phase1Chatbot() {
@@ -59,13 +60,19 @@ export function Phase1Chatbot() {
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-3">
             <Bot className="w-6 h-6 text-primary" />
-            <span className="font-primary font-semibold text-sidebar-foreground">Agent Builder</span>
+            <div>
+              <span className="font-primary font-semibold text-sidebar-foreground">Agent Builder</span>
+              <p className="text-xs text-muted-foreground">Specification Collector</p>
+            </div>
           </div>
-          <div className="flex items-center justify-between text-sm text-muted-foreground">
-            <span>Step {currentSection} of 7</span>
+          <div className="flex items-center justify-between text-xs text-muted-foreground">
+            <span>Discovery Progress</span>
+            <span>{Math.round(progressPercent)}%</span>
           </div>
           <Progress value={progressPercent} className="h-1.5" />
         </div>
+
+        <PhaseNav />
 
         <div className="flex-1 flex flex-col gap-1">
           {discoverySections.map((section) => (
@@ -86,7 +93,7 @@ export function Phase1Chatbot() {
       {/* Chat Area */}
       <div className="flex-1 flex flex-col">
         <div className="h-16 border-b border-border flex items-center px-6">
-          <h2 className="text-base font-semibold">Let's configure your agent's specifications</h2>
+          <h2 className="text-base font-semibold">Let's configure your agent's memory system</h2>
         </div>
 
         <div className="flex-1 overflow-y-auto p-6 space-y-4">
@@ -103,7 +110,7 @@ export function Phase1Chatbot() {
               <div
                 className={`max-w-2xl rounded-lg p-4 ${
                   message.role === 'bot'
-                    ? 'bg-card border border-border'
+                    ? 'bg-card border border-border text-card-foreground'
                     : 'bg-primary text-primary-foreground'
                 }`}
               >
@@ -133,15 +140,18 @@ export function Phase1Chatbot() {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
-              placeholder="Type your response..."
+              placeholder="Type your response or select options above..."
               className="flex-1"
             />
+            <Button variant="outline" onClick={() => setInputValue('')}>
+              Skip Section
+            </Button>
             <Button onClick={handleSendMessage}>
               <Send className="w-4 h-4" />
             </Button>
           </div>
           <p className="text-xs text-muted-foreground text-center mt-3">
-            Press Enter to send or click the options above to make quick selections
+            Press Enter to send · Click options for quick selections · Skip to move forward
           </p>
         </div>
       </div>
@@ -149,8 +159,8 @@ export function Phase1Chatbot() {
       {/* Specification Preview */}
       <div className="w-90 border-l border-border bg-card p-6 flex flex-col gap-4">
         <div>
-          <h3 className="text-base font-semibold">Agent Specification</h3>
-          <p className="text-xs text-muted-foreground mt-1">Live preview of collected data</p>
+          <h3 className="text-base font-semibold">Agent Specification Preview</h3>
+          <p className="text-xs text-muted-foreground mt-1">Live preview as you build</p>
         </div>
 
         <div className="flex-1 overflow-y-auto space-y-4">

@@ -3,13 +3,14 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/label';
 import { Bot, Brain, Zap, Plug, Users, Shield, CheckCircle } from 'lucide-react';
+import { PhaseNav } from '@/components/PhaseNav';
 
 const nodeConfig = [
-  { id: 'memory', label: 'Memory Systems', icon: Brain, color: 'text-purple-500', count: 5, x: 120, y: 180 },
-  { id: 'skills', label: 'Skills', icon: Zap, color: 'text-green-500', count: 2, x: 540, y: 180 },
-  { id: 'mcp', label: 'MCP Tools', icon: Plug, color: 'text-blue-500', count: 3, x: 120, y: 580 },
-  { id: 'a2a', label: 'A2A Connections', icon: Users, color: 'text-orange-500', count: 1, x: 540, y: 580 },
-  { id: 'guardrails', label: 'Guardrails', icon: Shield, color: 'text-red-500', count: 4, x: 680, y: 380 },
+  { id: 'memory', label: 'Memory Systems', icon: Brain, color: 'text-purple-500', count: 5, unit: 'types', x: 120, y: 180 },
+  { id: 'skills', label: 'Skills', icon: Zap, color: 'text-green-500', count: 2, unit: 'skills', x: 540, y: 180 },
+  { id: 'mcp', label: 'MCP Tools', icon: Plug, color: 'text-blue-500', count: 3, unit: 'tools', x: 120, y: 580 },
+  { id: 'a2a', label: 'A2A Connections', icon: Users, color: 'text-orange-500', count: 1, unit: 'agent', x: 540, y: 580 },
+  { id: 'guardrails', label: 'Guardrails', icon: Shield, color: 'text-red-500', count: 4, unit: 'rules', x: 680, y: 380 },
 ];
 
 export function Phase2Diagram() {
@@ -21,8 +22,13 @@ export function Phase2Diagram() {
       <div className="w-70 border-r border-sidebar-border bg-sidebar p-4 flex flex-col gap-4">
         <div className="flex items-center gap-3 pb-4 border-b border-sidebar-border">
           <Bot className="w-6 h-6 text-primary" />
-          <span className="font-primary font-semibold text-sidebar-foreground">Agent Builder</span>
+          <div>
+            <span className="font-primary font-semibold text-sidebar-foreground">Agent Builder</span>
+            <p className="text-xs text-muted-foreground">Design Diagram</p>
+          </div>
         </div>
+
+        <PhaseNav />
 
         <Card className="p-3">
           <div className="flex items-center gap-3">
@@ -31,7 +37,7 @@ export function Phase2Diagram() {
             </div>
             <div>
               <p className="text-sm font-semibold">{agentSpec.identity.name || 'My Agent'}</p>
-              <p className="text-xs text-muted-foreground">{agentSpec.identity.persona}</p>
+              <p className="text-xs text-muted-foreground">AI/LLM Agent &middot; {agentSpec.identity.persona}</p>
             </div>
           </div>
         </Card>
@@ -83,7 +89,7 @@ export function Phase2Diagram() {
             return (
               <div
                 key={node.id}
-                className={`absolute bg-card border-2 rounded-lg flex flex-col items-center justify-center gap-2 p-3 cursor-pointer hover:bg-card/80 transition-colors ${
+                className={`absolute bg-card text-card-foreground border-2 rounded-lg flex flex-col items-center justify-center gap-2 p-3 cursor-pointer hover:bg-card/80 transition-colors ${
                   phase2.selectedNode === node.id ? 'ring-2 ring-primary' : ''
                 }`}
                 style={{ width: 140, height: 80, left: node.x, top: node.y }}
@@ -91,7 +97,7 @@ export function Phase2Diagram() {
               >
                 <Icon className={`w-6 h-6 ${node.color}`} />
                 <span className="text-xs font-medium text-center">{node.label}</span>
-                <span className="text-xs text-muted-foreground">{node.count} {node.id}</span>
+                <span className="text-xs text-muted-foreground">{node.count} {node.unit}</span>
               </div>
             );
           })}
@@ -108,7 +114,7 @@ export function Phase2Diagram() {
       </div>
 
       {/* Details Panel */}
-      <div className="w-75 border-l border-border bg-card p-5 flex flex-col gap-4">
+      <div className="w-75 border-l border-border bg-card text-card-foreground p-5 flex flex-col gap-4">
         <div>
           <h3 className="text-base font-semibold">Component Details</h3>
           <p className="text-xs text-muted-foreground mt-1">
