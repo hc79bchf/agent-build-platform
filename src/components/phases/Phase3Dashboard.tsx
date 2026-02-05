@@ -82,7 +82,7 @@ export function Phase3Dashboard() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col overflow-y-auto">
         <div className="p-6 space-y-6">
           <div>
             <p className="text-sm text-muted-foreground max-w-2xl">

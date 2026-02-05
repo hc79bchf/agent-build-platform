@@ -48,18 +48,18 @@
   .dark {
     /* Dark mode colors */
     --background: 0 0% 7%; /* #111111 */
-    --foreground: 0 0% 100%; /* #FFFFFF */
+    --foreground: 0 0% 100%; /* #FFFFFF - Pure white text */
     --primary: 30 100% 50%; /* #FF8400 */
-    --primary-foreground: 0 0% 7%; /* #111111 */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF - White text on primary */
     --secondary: 0 0% 18%; /* #2E2E2E */
-    --secondary-foreground: 0 0% 100%; /* #FFFFFF */
+    --secondary-foreground: 0 0% 100%; /* #FFFFFF - White text */
     --destructive: 11 100% 60%; /* #FF5C33 */
     --muted: 0 0% 18%; /* #2E2E2E */
-    --muted-foreground: 60 3% 72%; /* #B8B9B6 */
+    --muted-foreground: 0 0% 85%; /* #D9D9D9 - Brighter gray for better readability */
     --accent: 0 0% 7%; /* #111111 */
-    --accent-foreground: 0 0% 95%; /* #F2F3F0 */
+    --accent-foreground: 0 0% 100%; /* #FFFFFF - White text */
     --card: 0 0% 10%; /* #1A1A1A */
-    --card-foreground: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 0 0% 100%; /* #FFFFFF - Pure white text */
     --popover: 0 0% 10%; /* #1A1A1A */
     --popover-foreground: 0 0% 100%; /* #FFFFFF */
     --border: 0 0% 18%; /* #2E2E2E */
@@ -68,11 +68,11 @@
 
     /* Sidebar colors */
     --sidebar: 240 9% 9%; /* #18181b */
-    --sidebar-foreground: 0 0% 98%; /* #fafafa */
+    --sidebar-foreground: 0 0% 100%; /* #FFFFFF - Pure white for sidebar text */
     --sidebar-primary: 240 9% 10%; /* #18181b */
-    --sidebar-primary-foreground: 0 0% 98%; /* #fafafa */
+    --sidebar-primary-foreground: 0 0% 100%; /* #FFFFFF */
     --sidebar-accent: 240 6% 17%; /* #2a2a30 */
-    --sidebar-accent-foreground: 0 0% 98%; /* #fafafa */
+    --sidebar-accent-foreground: 0 0% 100%; /* #FFFFFF - White text in sidebar accent */
     --sidebar-border: 0 0% 100% / 0.1; /* #ffffff1a */
     --sidebar-ring: 240 4% 46%; /* #71717a */
 

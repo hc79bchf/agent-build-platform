@@ -7,7 +7,7 @@ export function AgentBuilder() {
   const { currentPhase } = useAgentBuilder();
 
   return (
-    <div className="dark">
+    <div className="dark bg-background min-h-screen">
       {currentPhase === 1 && <Phase1Chatbot />}
       {currentPhase === 2 && <Phase2Diagram />}
       {currentPhase === 3 && <Phase3Dashboard />}
