@@ -44,7 +44,7 @@ const memoryTypes: Array<{ key: MemoryType; title: string; description: string }
 ];
 
 export function Phase3Dashboard() {
-  const { phase3, agentSpec, updateMemoryConfig } = useAgentBuilder();
+  const { phase3, agentSpec, updateMemoryConfig, setCurrentStep } = useAgentBuilder();
 
   return (
     <div className="flex h-screen bg-background">
